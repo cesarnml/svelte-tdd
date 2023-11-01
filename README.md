@@ -31,3 +31,6 @@
 ## Notes
 
 ### Preface
+
+- "It wasn't long before I discovered TDD and how it could help me have a simpler, quieter, calmer life."
+- 
