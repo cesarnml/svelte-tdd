@@ -4,7 +4,10 @@ import { defineConfig } from 'vitest/config';
 export default defineConfig({
 	plugins: [sveltekit()],
 	test: {
-		include: ['src/**/*.{test,spec}.{js,ts}']
-		// reporters: ['verbose']
+		globals: true,
+		environment: 'jsdom',
+		include: ['src/**/*.{test,spec}.{js,ts}'],
+		setupFiles: ['src/vitest/registerMatchers.ts', 'src/vitest/cleanupDom.ts'],
+		restoreMocks: true
 	}
 });
