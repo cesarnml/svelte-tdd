@@ -1,13 +1,14 @@
-import { sveltekit } from '@sveltejs/kit/vite';
-import { defineConfig } from 'vitest/config';
+import { sveltekit } from '@sveltejs/kit/vite'
+import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
-	plugins: [sveltekit()],
-	test: {
-		globals: true,
-		environment: 'jsdom',
-		include: ['src/**/*.{test,spec}.{js,ts}'],
-		setupFiles: ['src/vitest/registerMatchers.ts', 'src/vitest/cleanupDom.ts'],
-		restoreMocks: true
-	}
-});
+  plugins: [sveltekit()],
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    include: ['src/**/*.{test,spec}.{js,ts}'],
+    setupFiles: ['src/vitest/cleanupDom.ts', 'src/vitest/registerMatchers.ts'],
+    restoreMocks: true,
+    reporters: 'verbose',
+  },
+})

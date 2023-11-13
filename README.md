@@ -7,10 +7,10 @@
 
 ## Chapters
 
-- [ ] Preface
+- [X] ~~*Preface*~~ [2023-11-13]
 - [ ] Part 1: Learning the TDD Cycle
-  - [ ] Chapter 01: Setting up for Testing
-  - [ ] Chapter 02: Introducing the Red-Green-Refactor Workflow
+  - [X] ~~*Chapter 01: Setting up for Testing*~~ [2023-11-13]
+  - [X] ~~*Chapter 02: Introducing the Red-Green-Refactor Workflow*~~ [2023-11-13]
   - [ ] Chapter 03: Loading Data into a Route
   - [ ] Chapter 04: Saving Form Data
   - [ ] Chapter 05: Validating Form Data
