@@ -5,6 +5,7 @@
   - [Notes](#notes)
     - [Preface](#preface)
     - [Chapter 03 - Loading Data into a Route](#chapter-03---loading-data-into-a-route)
+    - [Chapter 04 - Saving Form Data](#chapter-04---saving-form-data)
 
 ## Chapters
 
@@ -54,4 +55,37 @@ describe('/birthdays - load', () => {
 		})
 	})
 - [ ] })
+```
+
+### Chapter 04 - Saving Form Data
+
+- Template for testing SvelteKit server-side form `actions` functionality
+
+```js
+// mocking form data request object
+const createFormDataFromObject = (obj) => {
+	const formData = new FormData();
+	Object.entries(obj).forEach(([key, value]) => {
+		formData.append(key, value);
+	});
+	return formData;
+};
+
+export const createFormDataRequest = (obj) => ({
+	formData: () => new Promise((resolve) => resolve(createFormDataFromObject(obj)))
+});
+```
+
+```js
+// assertion on actions object
+import { load, actions } from './+page.server.js';
+
+const request = createFormDataRequest({
+    name: 'Zeus',
+    dob: '1992-01-01'
+  });
+await actions.default({ request });
+expect(load().birthdays).toContainEqual(
+  expect.objectContaining({ name: 'Zeus', dob: '1992-01-01' })
+  );
 ```
