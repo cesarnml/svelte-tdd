@@ -13,7 +13,7 @@
   - [X] ~~*Chapter 01: Setting up for Testing*~~ [2023-11-13]
   - [X] ~~*Chapter 02: Introducing the Red-Green-Refactor Workflow*~~ [2023-11-13]
   - [X] ~~*Chapter 03: Loading Data into a Route*~~ [2023-11-14]
-  - [ ] Chapter 04: Saving Form Data
+  - [X] ~~*Chapter 04: Saving Form Data*~~ [2023-11-14]
   - [ ] Chapter 05: Validating Form Data
   - [ ] Chapter 06: Editing Form Data
 - [ ] Part 2: Refactoring Tests and Application Code
