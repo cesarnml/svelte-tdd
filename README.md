@@ -6,17 +6,19 @@
     - [Preface](#preface)
     - [Chapter 03 - Loading Data into a Route](#chapter-03---loading-data-into-a-route)
     - [Chapter 04 - Saving Form Data](#chapter-04---saving-form-data)
+    - [Chapter 05 - Validating Form Data](#chapter-05---validating-form-data)
+    - [Chapter 06 - Editing Form Data](#chapter-06---editing-form-data)
 
 ## Chapters
 
 - [X] ~~*Preface*~~ [2023-11-13]
-- [ ] Part 1: Learning the TDD Cycle
+- [X] ~~*Part 1: Learning the TDD Cycle*~~ [2023-11-14]
   - [X] ~~*Chapter 01: Setting up for Testing*~~ [2023-11-13]
   - [X] ~~*Chapter 02: Introducing the Red-Green-Refactor Workflow*~~ [2023-11-13]
   - [X] ~~*Chapter 03: Loading Data into a Route*~~ [2023-11-14]
   - [X] ~~*Chapter 04: Saving Form Data*~~ [2023-11-14]
-  - [ ] Chapter 05: Validating Form Data
-  - [ ] Chapter 06: Editing Form Data
+  - [X] ~~*Chapter 05: Validating Form Data*~~ [2023-11-14]
+  - [X] ~~*Chapter 06: Editing Form Data*~~ [2023-11-14]
 - [ ] Part 2: Refactoring Tests and Application Code
   - [ ] Chapter 07: Tidying up Test Suites
   - [ ] Chapter 08: Creating Matchers to Simplify Tests
@@ -89,3 +91,28 @@ expect(load().birthdays).toContainEqual(
   expect.objectContaining({ name: 'Zeus', dob: '1992-01-01' })
   );
 ```
+
+### Chapter 05 - Validating Form Data
+
+- Template for testing SvelteKit component displays `form` prop error messages
+
+```js
+describe('validation errors', () => {
+  it('displays a message', () => {
+    render(BirthdayForm, {
+      form: {
+        error: 'An error'
+      }
+    });
+    expect(
+      screen.queryByText('An error')
+    ).toBeVisible();
+  });
+})
+```
+
+### Chapter 06 - Editing Form Data
+
+- Added ability to edit birthday data in addition to creation.
+- Changed data structure from a list to a Map.
+- Added an edit state to the page component

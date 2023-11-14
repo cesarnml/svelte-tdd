@@ -1,0 +1,15 @@
+{
+  "name": "svelte-tdd",
+  "version": "1.0.0",
+  "description": "- [Svelte Test Driven Development by Daniel Irvine](#svelte-test-driven-development-by-daniel-irvine)   - [Chapters](#chapters)   - [Notes](#notes)     - [Preface](#preface)     - [Chapter 03 - Loading Data into a Route](#chapter-03---loading-data-into-a-route)     - [Chapter 04 - Saving Form Data](#chapter-04---saving-form-data)     - [Chapter 05 - Validating Form Data](#chapter-05---validating-form-data)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@sveltejs/adapter-auto": "^2.1.1"
+  }
+}
