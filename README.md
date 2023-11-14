@@ -4,6 +4,7 @@
   - [Chapters](#chapters)
   - [Notes](#notes)
     - [Preface](#preface)
+    - [Chapter 03 - Loading Data into a Route](#chapter-03---loading-data-into-a-route)
 
 ## Chapters
 
@@ -11,7 +12,7 @@
 - [ ] Part 1: Learning the TDD Cycle
   - [X] ~~*Chapter 01: Setting up for Testing*~~ [2023-11-13]
   - [X] ~~*Chapter 02: Introducing the Red-Green-Refactor Workflow*~~ [2023-11-13]
-  - [ ] Chapter 03: Loading Data into a Route
+  - [X] ~~*Chapter 03: Loading Data into a Route*~~ [2023-11-14]
   - [ ] Chapter 04: Saving Form Data
   - [ ] Chapter 05: Validating Form Data
   - [ ] Chapter 06: Editing Form Data
@@ -33,4 +34,24 @@
 ### Preface
 
 - "It wasn't long before I discovered TDD and how it could help me have a simpler, quieter, calmer life."
-- 
+
+### Chapter 03 - Loading Data into a Route
+
+- Template for testing SvelteKit server-side page `load` functionality
+
+```javascript
+import { describe, it, expect } from 'vitest'
+import { load } from './+page.server.js'
+
+describe('/birthdays - load', () => {
+	it('returns a fixture of two items', () => {
+		const result = load()
+		expect(result).toEqual({
+			people: [
+				{ name: 'Hercules', dob: '2021-01-01' },
+				{ name: 'Athena', dob: '2021-01-02' }
+			]
+		})
+	})
+- [ ] })
+```
