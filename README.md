@@ -8,6 +8,8 @@
     - [Chapter 04 - Saving Form Data](#chapter-04---saving-form-data)
     - [Chapter 05 - Validating Form Data](#chapter-05---validating-form-data)
     - [Chapter 06 - Editing Form Data](#chapter-06---editing-form-data)
+    - [Chapter 07 - Tidying up Test Suites](#chapter-07---tidying-up-test-suites)
+    - [Chapter 08 - Creating Matchers to Simply Tests](#chapter-08---creating-matchers-to-simply-tests)
 
 ## Chapters
 
@@ -116,3 +118,18 @@ describe('validation errors', () => {
 - Added ability to edit birthday data in addition to creation.
 - Changed data structure from a list to a Map.
 - Added an edit state to the page component
+
+### Chapter 07 - Tidying up Test Suites
+
+- Ways to keep your test suites tidy.
+- Application code requires building abstractions and encapsulating details, with deep layers of connecting objects.
+- "Test benefit from being shallow, with each test statement having a clear effect.
+- Test suites have just one flow
+- The primary mechanism you have to control complexity in test suites is abstracting functions that hide detail.
+- Hiding necessary  but irrelevant data is a key method for keeping unit tests succinct and clear.
+- Three Tips:
+  - 1. `Page Object Models` for Playwright end-to-end tests
+  - 2. `Action helps` for `Act` phase of Vitest unit tests
+  - 2. `Factories` for `Arrange` phase of Vitest unit tests (might be)
+
+### Chapter 08 - Creating Matchers to Simply Tests
