@@ -22,8 +22,8 @@
   - [X] ~~*Chapter 05: Validating Form Data*~~ [2023-11-14]
   - [X] ~~*Chapter 06: Editing Form Data*~~ [2023-11-14]
 - [ ] Part 2: Refactoring Tests and Application Code
-  - [ ] Chapter 07: Tidying up Test Suites
-  - [ ] Chapter 08: Creating Matchers to Simplify Tests
+  - [X] ~~*Chapter 07: Tidying up Test Suites*~~ [2023-11-16]
+  - [X] ~~*Chapter 08: Creating Matchers to Simplify Tests*~~ [2023-11-16]
   - [ ] Chapter 09: Extracting Logic Out of the Framework
   - [ ] Chapter 10: Test-Driving API Endpoints
   - [ ] Chapter 11: Replacing Behavior with a Side-By-Side Implementation
@@ -133,3 +133,30 @@ describe('validation errors', () => {
   - 2. `Factories` for `Arrange` phase of Vitest unit tests (might be)
 
 ### Chapter 08 - Creating Matchers to Simply Tests
+
+- Custom Matcher:
+  - `toBeUnprocessableEntity`
+    - Does not save data
+    - Returns error code (e.g. 422)
+    - Returns error message
+    - Returns unprocessed values
+- Basic structure of a matcher:
+
+```js
+export function toTestSomething(received, expected) {
+  const pass = ...
+  const message = () => "..."
+
+  return {
+    pass,message
+  }
+}
+```
+
+- `Negated Matcher`: `true` value for pass means expectation failed
+- It's important that the custom matcher is defined using the `function` keyword in order for it to gain access to utility function provided via Vite
+  - `this.equals`
+  - `this.utils.diff`
+  - `this.utils.stringify`
+  - `this.isNot`
+- 
