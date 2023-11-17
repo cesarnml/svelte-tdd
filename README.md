@@ -27,14 +27,14 @@
   - [x] ~~_Chapter 04: Saving Form Data_~~ [2023-11-14]
   - [x] ~~_Chapter 05: Validating Form Data_~~ [2023-11-14]
   - [x] ~~_Chapter 06: Editing Form Data_~~ [2023-11-14]
-- [ ] Part 2: Refactoring Tests and Application Code
+- [x] ~~_Part 2: Refactoring Tests and Application Code_~~ [2023-11-17]
   - [x] ~~_Chapter 07: Tidying up Test Suites_~~ [2023-11-16]
   - [x] ~~_Chapter 08: Creating Matchers to Simplify Tests_~~ [2023-11-16]
   - [x] ~~_Chapter 09: Extracting Logic Out of the Framework_~~ [2023-11-16]
   - [x] ~~_Chapter 10: Test-Driving API Endpoints_~~ [2023-11-16]
-  - [ ] Chapter 11: Replacing Behavior with a Side-By-Side Implementation
-  - [ ] Chapter 12: Using Component Mocks to Clarify Tests
-  - [ ] Chapter 13: Adding Cucumber Tests
+  - [x] ~~_Chapter 11: Replacing Behavior with a Side-By-Side Implementation_~~ [2023-11-17]
+  - [x] ~~_Chapter 12: Using Component Mocks to Clarify Tests_~~ [2023-11-17]
+  - [x] ~~_Chapter 13: Adding Cucumber Tests_~~ [2023-11-17]
 - [ ] Part 3: Testing SvelteKit Features
   - [ ] Chapter 14: Testing Authentication
   - [ ] Chapter 15: Test-Driving Svelte Stores
@@ -200,5 +200,10 @@ test('title', async ({request}) => {
 - Avoid component mocks if possible because they added complexity to the testing suite
 
 ### Chapter 13 - Adding Cucumber Tests - 10 pages
+
+- Cucumber tests are not written in JavaScript code. They use a special syntax known as **Gherkin** within `feature files`
+- _Given, When, Then_
+- The Gherkin syntax allows for product features to be specified by non-coders in a more human-friendly format, but eventually code re-enters the scene within the step definitions
+- Semi-useful to now, but feels just like Playwright E2E tests with more steps.
 
 ### Chapter 14 - Testing Authentication - 10 pages
