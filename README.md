@@ -19,19 +19,19 @@
 
 ## Chapters
 
-- [X] ~~*Preface*~~ [2023-11-13]
-- [X] ~~*Part 1: Learning the TDD Cycle*~~ [2023-11-14]
-  - [X] ~~*Chapter 01: Setting up for Testing*~~ [2023-11-13]
-  - [X] ~~*Chapter 02: Introducing the Red-Green-Refactor Workflow*~~ [2023-11-13]
-  - [X] ~~*Chapter 03: Loading Data into a Route*~~ [2023-11-14]
-  - [X] ~~*Chapter 04: Saving Form Data*~~ [2023-11-14]
-  - [X] ~~*Chapter 05: Validating Form Data*~~ [2023-11-14]
-  - [X] ~~*Chapter 06: Editing Form Data*~~ [2023-11-14]
+- [x] ~~_Preface_~~ [2023-11-13]
+- [x] ~~_Part 1: Learning the TDD Cycle_~~ [2023-11-14]
+  - [x] ~~_Chapter 01: Setting up for Testing_~~ [2023-11-13]
+  - [x] ~~_Chapter 02: Introducing the Red-Green-Refactor Workflow_~~ [2023-11-13]
+  - [x] ~~_Chapter 03: Loading Data into a Route_~~ [2023-11-14]
+  - [x] ~~_Chapter 04: Saving Form Data_~~ [2023-11-14]
+  - [x] ~~_Chapter 05: Validating Form Data_~~ [2023-11-14]
+  - [x] ~~_Chapter 06: Editing Form Data_~~ [2023-11-14]
 - [ ] Part 2: Refactoring Tests and Application Code
-  - [X] ~~*Chapter 07: Tidying up Test Suites*~~ [2023-11-16]
-  - [X] ~~*Chapter 08: Creating Matchers to Simplify Tests*~~ [2023-11-16]
-  - [X] ~~*Chapter 09: Extracting Logic Out of the Framework*~~ [2023-11-16]
-  - [X] ~~*Chapter 10: Test-Driving API Endpoints*~~ [2023-11-16]
+  - [x] ~~_Chapter 07: Tidying up Test Suites_~~ [2023-11-16]
+  - [x] ~~_Chapter 08: Creating Matchers to Simplify Tests_~~ [2023-11-16]
+  - [x] ~~_Chapter 09: Extracting Logic Out of the Framework_~~ [2023-11-16]
+  - [x] ~~_Chapter 10: Test-Driving API Endpoints_~~ [2023-11-16]
   - [ ] Chapter 11: Replacing Behavior with a Side-By-Side Implementation
   - [ ] Chapter 12: Using Component Mocks to Clarify Tests
   - [ ] Chapter 13: Adding Cucumber Tests
@@ -51,20 +51,20 @@
 - Template for testing SvelteKit server-side page `load` functionality
 
 ```javascript
-import { describe, it, expect } from 'vitest'
-import { load } from './+page.server.js'
+import { describe, it, expect } from "vitest";
+import { load } from "./+page.server.js";
 
-describe('/birthdays - load', () => {
-	it('returns a fixture of two items', () => {
-		const result = load()
-		expect(result).toEqual({
-			people: [
-				{ name: 'Hercules', dob: '2021-01-01' },
-				{ name: 'Athena', dob: '2021-01-02' }
-			]
-		})
-	})
-- [ ] })
+describe("/birthdays - load", () => {
+  it("returns a fixture of two items", () => {
+    const result = load();
+    expect(result).toEqual({
+      people: [
+        { name: "Hercules", dob: "2021-01-01" },
+        { name: "Athena", dob: "2021-01-02" },
+      ],
+    });
+  }) - [];
+});
 ```
 
 ### Chapter 04 - Saving Form Data
@@ -74,30 +74,31 @@ describe('/birthdays - load', () => {
 ```js
 // mocking form data request object
 const createFormDataFromObject = (obj) => {
-	const formData = new FormData();
-	Object.entries(obj).forEach(([key, value]) => {
-		formData.append(key, value);
-	});
-	return formData;
+  const formData = new FormData();
+  Object.entries(obj).forEach(([key, value]) => {
+    formData.append(key, value);
+  });
+  return formData;
 };
 
 export const createFormDataRequest = (obj) => ({
-	formData: () => new Promise((resolve) => resolve(createFormDataFromObject(obj)))
+  formData: () =>
+    new Promise((resolve) => resolve(createFormDataFromObject(obj))),
 });
 ```
 
 ```js
 // assertion on actions object
-import { load, actions } from './+page.server.js';
+import { load, actions } from "./+page.server.js";
 
 const request = createFormDataRequest({
-    name: 'Zeus',
-    dob: '1992-01-01'
-  });
+  name: "Zeus",
+  dob: "1992-01-01",
+});
 await actions.default({ request });
 expect(load().birthdays).toContainEqual(
-  expect.objectContaining({ name: 'Zeus', dob: '1992-01-01' })
-  );
+  expect.objectContaining({ name: "Zeus", dob: "1992-01-01" })
+);
 ```
 
 ### Chapter 05 - Validating Form Data
@@ -105,18 +106,16 @@ expect(load().birthdays).toContainEqual(
 - Template for testing SvelteKit component displays `form` prop error messages
 
 ```js
-describe('validation errors', () => {
-  it('displays a message', () => {
+describe("validation errors", () => {
+  it("displays a message", () => {
     render(BirthdayForm, {
       form: {
-        error: 'An error'
-      }
+        error: "An error",
+      },
     });
-    expect(
-      screen.queryByText('An error')
-    ).toBeVisible();
+    expect(screen.queryByText("An error")).toBeVisible();
   });
-})
+});
 ```
 
 ### Chapter 06 - Editing Form Data
@@ -132,7 +131,7 @@ describe('validation errors', () => {
 - "Test benefit from being shallow, with each test statement having a clear effect.
 - Test suites have just one flow
 - The primary mechanism you have to control complexity in test suites is abstracting functions that hide detail.
-- Hiding necessary  but irrelevant data is a key method for keeping unit tests succinct and clear.
+- Hiding necessary but irrelevant data is a key method for keeping unit tests succinct and clear.
 - Three Tips:
   - 1. `Page Object Models` for Playwright end-to-end tests
   - 2. `Action helps` for `Act` phase of Vitest unit tests
@@ -170,7 +169,6 @@ export function toTestSomething(received, expected) {
 
 - The design of application code should make it easy to write automated unit tests
 
-
 ### Chapter 10 - Test-Driving API Endpoints
 
 - Playwright can be used to make HTTP Request via the `request` parameter
@@ -185,11 +183,21 @@ test('title', async ({request}) => {
 
 ### Chapter 11 - Replacing Behavior with a Side-By-Side Implementation
 
-- `side-by-side implementation` - is a way to use tests to replace the existing code while ensuring the test suite remains on *Green*
-- In Vitest, a `spy` is created by calling `vi.fn` 
+- `side-by-side implementation` - is a way to use tests to replace the existing code while ensuring the test suite remains on _Green_
+- In Vitest, a `spy` is created by calling `vi.fn`
 - Incredibly confused by this chapters implementation, but going to brush it off and continue forward
 
 ### Chapter 12 - Using Component Mocks to Clarify Tests - 15 pages
+
+- The number-one rule when using component mocks, and test doubles in general, is to avoid building any control logic into them.
+  - `mockReturnValue` and `mockResolvedValue` always return fixed values
+  - Avoid setting up a test double in a `beforeEach` block
+- Hand-rolled component stubs rely on Vitest's `vi.mock` function and `__mocks__` directory
+- `JSON.stringify` is a handy method to use in component mocks when you just want to verify that the correct prop structure is passed to a mock from its parent
+- BIG NEGATIVE WITH MOCKING COMPONENTS:
+  - _it's challenging to keep the mock aligned with real implementations._
+- If needed, use `svelte-component-double` package to mock components and gain access to useful custom matchers: `toBeRendered` and `toBeRenderedWithProps`
+- Avoid component mocks if possible because they added complexity to the testing suite
 
 ### Chapter 13 - Adding Cucumber Tests - 10 pages
 
