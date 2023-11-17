@@ -10,6 +10,12 @@
     - [Chapter 06 - Editing Form Data](#chapter-06---editing-form-data)
     - [Chapter 07 - Tidying up Test Suites](#chapter-07---tidying-up-test-suites)
     - [Chapter 08 - Creating Matchers to Simply Tests](#chapter-08---creating-matchers-to-simply-tests)
+    - [Chapter 09 - Extracting Logic Out of the Framework](#chapter-09---extracting-logic-out-of-the-framework)
+    - [Chapter 10 - Test-Driving API Endpoints](#chapter-10---test-driving-api-endpoints)
+    - [Chapter 11 - Replacing Behavior with a Side-By-Side Implementation](#chapter-11---replacing-behavior-with-a-side-by-side-implementation)
+    - [Chapter 12 - Using Component Mocks to Clarify Tests - 15 pages](#chapter-12---using-component-mocks-to-clarify-tests---15-pages)
+    - [Chapter 13 - Adding Cucumber Tests - 10 pages](#chapter-13---adding-cucumber-tests---10-pages)
+    - [Chapter 14 - Testing Authentication - 10 pages](#chapter-14---testing-authentication---10-pages)
 
 ## Chapters
 
@@ -24,8 +30,8 @@
 - [ ] Part 2: Refactoring Tests and Application Code
   - [X] ~~*Chapter 07: Tidying up Test Suites*~~ [2023-11-16]
   - [X] ~~*Chapter 08: Creating Matchers to Simplify Tests*~~ [2023-11-16]
-  - [ ] Chapter 09: Extracting Logic Out of the Framework
-  - [ ] Chapter 10: Test-Driving API Endpoints
+  - [X] ~~*Chapter 09: Extracting Logic Out of the Framework*~~ [2023-11-16]
+  - [X] ~~*Chapter 10: Test-Driving API Endpoints*~~ [2023-11-16]
   - [ ] Chapter 11: Replacing Behavior with a Side-By-Side Implementation
   - [ ] Chapter 12: Using Component Mocks to Clarify Tests
   - [ ] Chapter 13: Adding Cucumber Tests
@@ -159,4 +165,32 @@ export function toTestSomething(received, expected) {
   - `this.utils.diff`
   - `this.utils.stringify`
   - `this.isNot`
-- 
+
+### Chapter 09 - Extracting Logic Out of the Framework
+
+- The design of application code should make it easy to write automated unit tests
+
+
+### Chapter 10 - Test-Driving API Endpoints
+
+- Playwright can be used to make HTTP Request via the `request` parameter
+
+```js
+test('title', async ({request}) => {
+  const response = await request.get(url, {data: {...}})
+})
+```
+
+- Use `expect.hasAssertions()` to require expect assertions to be called in a `catch` of a try-catch block
+
+### Chapter 11 - Replacing Behavior with a Side-By-Side Implementation
+
+- `side-by-side implementation` - is a way to use tests to replace the existing code while ensuring the test suite remains on *Green*
+- In Vitest, a `spy` is created by calling `vi.fn` 
+- Incredibly confused by this chapters implementation, but going to brush it off and continue forward
+
+### Chapter 12 - Using Component Mocks to Clarify Tests - 15 pages
+
+### Chapter 13 - Adding Cucumber Tests - 10 pages
+
+### Chapter 14 - Testing Authentication - 10 pages
