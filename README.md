@@ -16,6 +16,8 @@
     - [Chapter 12 - Using Component Mocks to Clarify Tests - 15 pages](#chapter-12---using-component-mocks-to-clarify-tests---15-pages)
     - [Chapter 13 - Adding Cucumber Tests - 10 pages](#chapter-13---adding-cucumber-tests---10-pages)
     - [Chapter 14 - Testing Authentication - 10 pages](#chapter-14---testing-authentication---10-pages)
+    - [Chapter 15 - Test-Driving Svelte Stores - 5 pages](#chapter-15---test-driving-svelte-stores---5-pages)
+    - [Chapter 16 - Test-Driving Service Workers - 10 pages](#chapter-16---test-driving-service-workers---10-pages)
 
 ## Chapters
 
@@ -37,7 +39,7 @@
   - [x] ~~_Chapter 13: Adding Cucumber Tests_~~ [2023-11-17]
 - [ ] Part 3: Testing SvelteKit Features
   - [ ] Chapter 14: Testing Authentication
-  - [ ] Chapter 15: Test-Driving Svelte Stores
+  - [x] ~~_Chapter 15: Test-Driving Svelte Stores_~~ [2023-11-19]
   - [ ] Chapter 16: Test-Driving Service Workers
 
 ## Notes
@@ -207,3 +209,14 @@ test('title', async ({request}) => {
 - Semi-useful to now, but feels just like Playwright E2E tests with more steps.
 
 ### Chapter 14 - Testing Authentication - 10 pages
+
+### Chapter 15 - Test-Driving Svelte Stores - 5 pages
+
+- `vi.useFakeTimers` and `vi`
+- `writable([])`
+- Three things to test:
+  - 1. Setting the initial value
+  - 2. Displaying the value (1. On Initial load and 2. On update)
+  - 3. Updating the value
+
+### Chapter 16 - Test-Driving Service Workers - 10 pages
